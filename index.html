@@ -3,85 +3,23 @@
     <head>
         <meta charset ="UTF-8">
         <title> Rock Paper Scissors! </title> 
+        <script src="script.js" defer></script>
     </head>
 
     <body>
-        <script>
-            let round=1;
-            let playerSelection=('');
-            let computerSelection=('');
-            let playerScore = 0;
-            let computerScore= 0;
-            game();
-        
-          function game(){
-          
-             while (round<=5){
-                    randomNum();
-                    playerSelection = prompt("Choose either Rock, Paper, or Scissors", "").toLowerCase();  
-                    computerSelection = computerPlay(); 
-
-                    if (playerSelection == "rock" && computerSelection=="rock"){
-                        alert("You both picked Rock. It's a tie!");
-                        round++;
-                    }else if (playerSelection == "rock" && computerSelection=="paper") {
-                        alert("Paper beats rock! Computer wins this round!");
-                        computerScore++;
-                        round++;
-                    }else if (playerSelection == "rock" && computerSelection=="scissors") {
-                        alert("Rock beats scissors! You win this round!");
-                        playerScore++;
-                        round++;
-                    } else if (playerSelection == "paper" && computerSelection == "paper") {
-                        alert("You both picked Paper. It's a tie!");
-                        round++;
-                    } else if (playerSelection == "paper" && computerSelection == "scissors") {
-                        alert("Scissors beat paper! Computer wins this round!");
-                        computerScore++;
-                        round++;
-                    } else if (playerSelection == "paper" && computerSelection == "rock"){
-                        alert("Paper beats rock! You win this round!");
-                        playerScore++;
-                        round++;
-                    } else if (playerSelection == "scissors" && computerSelection=="scissors"){
-                        alert("You both picked Scissors. It's a tie!");
-                        round++;
-                    }else if (playerSelection == "scissors" && computerSelection=="rock") {
-                        alert("rock beats scissors! Computer wins this round!");
-                        computerScore++;
-                        round++;
-                    }else if (playerSelection == "scissors" && computerSelection == "paper"){
-                        alert("Scissors beats paper! You win this round!");
-                        playerScore++;
-                        round++;
-                    } else{
-                    alert("wrong text bud! you can only enter rock, paper, or scissors as an option");
-                    }
-                }
-
-
-             if (playerScore > computerScore){
-                alert("You won the game! the final score is: Player: " + playerScore + ' Computer: ' + computerScore);
-             }else if (playerScore < computerScore){
-                alert("You lost the game! the final score is: Player: " + playerScore + ' Computer: ' + computerScore);
-             } else {
-                 alert("it's a tie! the final score is: Player " + playerScore + ' Computer: ' + computerScore)
-             }
-                function computerPlay(){
-                    
-                    if (randomNum()>66) {
-                        return "rock";
-                    } else if (randomNum()>33) {
-                        return "paper";
-                    } else {
-                        return "scissors";
-                    }                
-                }
-                function randomNum(){
-                    
-                    return Math.floor(Math.random()*100);
-                }
-            }
-        </script>
+        <button class = "btnChoice">rock</button>
+        <button class = "btnChoice">paper</button>
+        <button class = "btnChoice">scissors</button>
+        <div id="container">
+            <div id = "welcomeMsg"> 
+                <p> This is a game of rock paper scissors. 
+                    It's you vs the computer overlords! Click
+                    one of the buttons above to start the game.
+                </p>
+            </div>          
+        </div>
+        <div id = "currentPlayerScore"></div>
+        <div id = "currentComputerScore"></div>
+        <div id ="results"></div>
     </body>
 </html>
